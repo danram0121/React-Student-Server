@@ -24,10 +24,11 @@ app.use((req, res, next) => {
 
 // Connect to MongoDB and once connected listen for requests on port 5678
 let db;
+port = process.env.PORT || 5678;
 connectToDb((err) => {
   if (!err) {
-    app.listen(5678, () => {
-      console.log("server is running at http://localhost:5678/");
+    app.listen(port, () => {
+      console.log("server is running.");
     });
     db = getDb();
   }
