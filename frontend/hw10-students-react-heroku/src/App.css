@@ -1,0 +1,12 @@
+.custom-form {
+  max-width: 500px !important; /* Overrides the container class width */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* fixed issue where form.control would appear infront of collapsible navbar */
+.navbar {
+  z-index: 99999 !important;
+}
