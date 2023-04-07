@@ -1,0 +1,23 @@
+{
+  "name": "hw10-deploy-to-heroku-danram0121",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://danram0121: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@github.com/cop4808-spring-2023-fullstack-web/hw10-deploy-to-heroku-danram0121.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cop4808-spring-2023-fullstack-web/hw10-deploy-to-heroku-danram0121/issues"
+  },
+  "engines": {
+    "node": "16.14.0"
+  },
+  "homepage": "https://github.com/cop4808-spring-2023-fullstack-web/hw10-deploy-to-heroku-danram0121#readme"
+}
