@@ -5,11 +5,7 @@
   "main": "config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd hw10-students-react-heroku && npm run build",
-    "install-react": "cd hw10-students-react-heroku && npm install",
-    "heroku-postbuild": "npm run install-react && npm run build ",
-    "react": "cd hw10-students-react-heroku && npm start",
-    "start": "concurrently \"node studentserver.js\" \"npm run react\" "
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix hw10-students-react-heroku && npm run build --prefix hw10-students-react-heroku"
   },
   "author": "",
   "license": "ISC",

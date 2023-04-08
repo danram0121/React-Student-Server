@@ -24,13 +24,6 @@ app.use((req, res, next) => {
   next();
 });
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
-
 // Connect to MongoDB and once connected listen for requests on port 5678
 mongoose.connect(process.env.MONGO_URI).catch((err) => console.log(err));
 
@@ -185,6 +178,20 @@ app.get("/students", function (req, res) {
       res.status(500).send("error - unable to retrieve resources");
     });
 });
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("hw10-students-react-heroku/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(
+      path.resolve(
+        __dirname,
+        "hw10-students-react-heroku",
+        "build",
+        "index.html"
+      )
+    );
+  });
+}
 
 app.listen(process.env.PORT || 5678, () => {
   console.log("server is running.");
