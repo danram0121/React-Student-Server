@@ -1,23 +1,22 @@
 {
-  "name": "hw10-deploy-to-heroku-danram0121",
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "config.js",
   "scripts": {
-    "start": "cd hw10-students-react-heroku && npm run start"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "react": "cd hw10-students-react-heroku && npm start",
+    "start": "concurrently \"node studentserver.js\" \"npm run react\" "
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://danram0121: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@github.com/cop4808-spring-2023-fullstack-web/hw10-deploy-to-heroku-danram0121.git"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cop4808-spring-2023-fullstack-web/hw10-deploy-to-heroku-danram0121/issues"
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "concurrently": "^8.0.1",
+    "express": "^4.18.2",
+    "mongodb": "^5.2.0"
   },
   "engines": {
     "node": "16.14.0"
-  },
-  "homepage": "https://github.com/cop4808-spring-2023-fullstack-web/hw10-deploy-to-heroku-danram0121#readme"
+  }
 }
