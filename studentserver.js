@@ -34,9 +34,6 @@ let db;
 port = process.env.PORT || 5678;
 connectToDb((err) => {
   if (!err) {
-    app.listen(port, () => {
-      console.log("server is running.");
-    });
     db = getDb();
   }
 });
@@ -191,4 +188,8 @@ app.get("/students", function (req, res) {
     .catch((err) => {
       res.status(500).send("error - unable to retrieve resources");
     });
+});
+
+app.listen(port, () => {
+  console.log("server is running.");
 });
