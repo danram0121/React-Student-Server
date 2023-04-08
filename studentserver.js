@@ -22,6 +22,13 @@ app.use((req, res, next) => {
   next();
 });
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
+
 // Connect to MongoDB and once connected listen for requests on port 5678
 let db;
 port = process.env.PORT || 5678;
@@ -185,10 +192,3 @@ app.get("/students", function (req, res) {
       res.status(500).send("error - unable to retrieve resources");
     });
 });
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
