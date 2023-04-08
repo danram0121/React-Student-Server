@@ -32,7 +32,7 @@ export default class AddStudent extends Component {
     // console.log(first_name, last_name, gpa, enrolled);
 
     axios
-      .post("http://localhost:5678/students", {
+      .post(`http://localhost:${process.env.PORT}/students`, {
         first_name: first_name,
         last_name: last_name,
         gpa: gpa,

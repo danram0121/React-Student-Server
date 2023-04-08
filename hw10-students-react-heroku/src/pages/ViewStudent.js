@@ -29,7 +29,7 @@ export default class ViewStudent extends Component {
     const record_id = this.state.record_id;
 
     axios
-      .get(`http://localhost:5678/students/${record_id}`, {})
+      .get(`http://localhost:${process.env.PORT}/students/${record_id}`, {})
       .then((response) => {
         const student = response.data.student;
         this.setState({

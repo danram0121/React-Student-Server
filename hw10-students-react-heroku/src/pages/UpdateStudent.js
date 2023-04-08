@@ -33,7 +33,7 @@ export default class UpdateStudent extends Component {
     const { record_id, first_name, last_name, gpa, enrolled } = this.state;
 
     axios
-      .put("http://localhost:5678/students/" + record_id, {
+      .put(`http://localhost:${process.env.PORT}/students/` + record_id, {
         record_id: record_id,
         first_name: first_name,
         last_name: last_name,
