@@ -4,16 +4,7 @@
 const { MongoClient } = require("mongodb");
 var config = require("./config");
 
-const uri =
-  "mongodb+srv://" +
-  config.db.user +
-  ":" +
-  config.db.pass +
-  "@" +
-  config.db.host +
-  "/" +
-  config.db.name +
-  "?retryWrites=true&w=majority";
+const uri = process.env.MONGODB_URI; // set uri to Heroku value
 
 let dbConnection;
 
