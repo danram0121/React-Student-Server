@@ -5,7 +5,7 @@ config.server = {};
 config.db = {};
 
 // server vars
-config.server.port = 5678;
+config.server.port = process.env.PORT || 5678;
 
 // mongodb+srv://admin:<password>@cluster0.icg3xbj.mongodb.net/?retryWrites=true&w=majority
 

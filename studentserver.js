@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // adds proper CORS headers to response allows requests from one domain to other domain
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, POST, PUT, PATCH, DELETE"
@@ -185,3 +185,6 @@ app.get("/students", function (req, res) {
       res.status(500).send("error - unable to retrieve resources");
     });
 });
+
+// if (process.env.NODE_ENV === "production") {
+// }
