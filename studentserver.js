@@ -1,10 +1,11 @@
 // Daniel Ramirez
 // Z23103454
 // studentserver.js
-
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const { connectToDb, getDb } = require("./db");
+const mongoose = require("mongoose");
 var config = require("./config");
 const path = require("path");
 
@@ -31,13 +32,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Connect to MongoDB and once connected listen for requests on port 5678
-let db;
-port = process.env.PORT || 5678;
-connectToDb((err) => {
-  if (!err) {
-    db = getDb();
-  }
-});
+mongoose.connect(process.env.MONGO_URI).catch((err) => console.log(err));
 
 // Endpoints
 
@@ -191,6 +186,6 @@ app.get("/students", function (req, res) {
     });
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT || 5678, () => {
   console.log("server is running.");
 });
