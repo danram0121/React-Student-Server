@@ -11,7 +11,7 @@ export default class ListsStudents extends Component {
 
   getStudents = () => {
     axios
-      .get(`/students`) // comment to test
+      .get(`${process.env.REACT_APP_BASE_URL}/students`) // comment to test
       .then((response) => {
         this.setState({ students: response.data.students });
       })

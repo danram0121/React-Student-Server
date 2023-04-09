@@ -3,8 +3,8 @@
 // studentserver.js
 require("dotenv").config();
 const express = require("express");
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const cors = require("cors");
 var config = require("./config");
 const path = require("path");
 
@@ -13,7 +13,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // adds proper CORS headers to response allows requests from one domain to other domain
-app.use(cors());
+app.use((req, res, next) => {
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://student-server-reactdeployment.herokuapp.com"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, PATCH, DELETE"
+  );
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  next();
+});
 
 // Connect to MongoDB and once connected listen for requests on port 5678
 mongoose
