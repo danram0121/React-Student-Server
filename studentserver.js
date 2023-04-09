@@ -3,26 +3,17 @@
 // studentserver.js
 require("dotenv").config();
 const express = require("express");
-const bodyParser = require("body-parser");
-const { connectToDb, getDb } = require("./db");
 const mongoose = require("mongoose");
+const cors = require("cors");
 var config = require("./config");
 const path = require("path");
 
 const app = express();
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 // adds proper CORS headers to response allows requests from one domain to other domain
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PUT, PATCH, DELETE"
-  );
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  next();
-});
+app.use(cors());
 
 // Connect to MongoDB and once connected listen for requests on port 5678
 mongoose
