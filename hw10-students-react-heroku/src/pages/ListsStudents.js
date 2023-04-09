@@ -11,7 +11,7 @@ export default class ListsStudents extends Component {
 
   getStudents = () => {
     axios
-      .get(`http://localhost:${process.env.PORT}/students/`)
+      .get(`${process.env.REACT_APP_BASE_URL}/students/`)
       .then((response) => {
         this.setState({ students: response.data.students });
       })
