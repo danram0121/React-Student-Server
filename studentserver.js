@@ -32,6 +32,8 @@ mongoose
   .then(() => console.log(`Connected to MongoDB`))
   .catch((err) => console.log(`Error connecting to MongoDB`, err));
 
+const db = mongoose.connection; //set db to mongoose connection
+
 // Endpoints
 
 // Add student record method
