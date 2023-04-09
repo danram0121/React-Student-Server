@@ -32,7 +32,7 @@ export default class AddStudent extends Component {
     // console.log(first_name, last_name, gpa, enrolled);
 
     axios
-      .post(`/students`, {
+      .post(`${process.env.REACT_APP_BASE_URL}/students`, {
         first_name: first_name,
         last_name: last_name,
         gpa: gpa,
