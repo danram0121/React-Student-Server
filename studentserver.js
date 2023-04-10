@@ -186,6 +186,41 @@ app.get("/students", function (req, res) {
     });
 });
 
+// Get Student Records that match query
+
+// Query can be first_name, last_name, gpa, or enrolled
+app.get("/search", function (req, res) {
+  var query = req.query.q; // get the search query parameter from the request
+  // Find student records that match the search query
+  db.collection(config.db.collection)
+    .find({
+      // $or operator finds student records that match the search query
+      $or: [
+        { first_name: { $regex: query, $options: "i" } },
+        { last_name: { $regex: query, $options: "i" } },
+        { gpa: { $regex: query, $options: "i" } },
+        { enrolled: { $regex: query, $options: "i" } },
+      ],
+    })
+    .toArray()
+    .then((result) => {
+      // added way to only send necessary info to frontend
+      const students = result.map((student) => {
+        return {
+          record_id: student.record_id,
+          first_name: student.first_name,
+          last_name: student.last_name,
+          gpa: student.gpa,
+          enrolled: student.enrolled,
+        };
+      });
+      res.status(200).json({ students: students });
+    })
+    .catch((err) => {
+      res.status(500).send("error - unable to retrieve resource");
+    });
+});
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("hw10-students-react-heroku/build"));
   app.get("*", (req, res) => {
