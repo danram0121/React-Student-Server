@@ -33,10 +33,10 @@ export default class ListsStudents extends Component {
         <Container>
           <h1 className="mt-5 mb-4 text-center">List Students</h1>
           {error && <div>Error: {error}</div>}
-          <Table striped hover>
+          <Table striped hover className="text-center">
             <thead>
               <tr>
-                <th>#</th>
+                <th>Student ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>GPA</th>

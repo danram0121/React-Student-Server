@@ -83,10 +83,10 @@ export default class ViewStudent extends Component {
               </Col>
             </Row>
           </Form>
-          <Table striped hover className="mt-4">
+          <Table striped hover className="mt-4 text-center">
             <thead>
               <tr>
-                <th>#</th>
+                <th>Student ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>GPA</th>
