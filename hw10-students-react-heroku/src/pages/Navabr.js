@@ -15,6 +15,8 @@ import UpdateStudent from "./UpdateStudent";
 import ViewStudent from "./ViewStudent";
 import DeleteStudent from "./DeleteStudent";
 import ListsStudents from "./ListsStudents";
+import SearchForm from "./SearchForm";
+import Search from "./Search";
 import { Component } from "react";
 
 export default class Navigation extends Component {
@@ -56,6 +58,8 @@ export default class Navigation extends Component {
                     List
                   </Nav.Link>
                 </Nav>
+                {/* import new search form */}
+                <SearchForm />
               </Navbar.Collapse>
             </Container>
           </Navbar>
@@ -67,6 +71,8 @@ export default class Navigation extends Component {
           <Route path="/Delete" element={<DeleteStudent />} />
           <Route path="/View" element={<ViewStudent />} />
           <Route path="/List" element={<ListsStudents />} />
+          {/* route for new search page */}
+          <Route path="/search" element={<Search />} />
         </Routes>
       </Router>
     );
