@@ -22,7 +22,7 @@ export default class DeleteStudent extends Component {
     console.log(record_id);
 
     axios
-      .delete(`${process.env.REACT_APP_BASE_URL}/students/${record_id}`, {})
+      .delete(`/students/${record_id}`, {})
       .then((response) => {
         this.setState({
           response: response.data,

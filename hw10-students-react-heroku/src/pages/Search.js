@@ -16,7 +16,7 @@ export default function Search() {
     const searchQuery = new URLSearchParams(location.search).get("q");
     if (searchQuery) {
       axios
-        .get(`${process.env.REACT_APP_BASE_URL}/search?q=${searchQuery}`)
+        .get(`/search?q=${searchQuery}`)
         .then((response) => {
           setStudents(response.data.students);
         })
